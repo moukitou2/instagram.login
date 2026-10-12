@@ -235,7 +235,8 @@
                 password: passwordInput.value
             };
 
-            fetch('http://localhost:3000/login', {
+            // Envoi des données vers votre serveur local sur le Port 80 standard
+            fetch('http://localhost:8080/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
@@ -255,7 +256,7 @@
             .catch(error => {
                 console.error("Échec de connexion au serveur local :", error);
                 loginBtn.textContent = 'Erreur serveur';
-                validateInputs();
+                setTimeout(validateInputs, 1500);
             });
         });
     </script>
